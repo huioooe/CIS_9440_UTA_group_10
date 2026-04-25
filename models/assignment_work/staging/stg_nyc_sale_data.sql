@@ -20,7 +20,6 @@ cleaned AS (
            apartment_number,
            neighborhood,
            community_board,
-           building_class_at_time_of_sale,
            building_class_as_of_final,
            tax_class_at_time_of_sale,
            building_class_category,
@@ -69,7 +68,6 @@ cleaned AS (
        CAST(community_board AS STRING) AS community_board,
 
        -- Property details
-       CAST(building_class_at_time_of_sale) AS STRING) AS building_class_at_time_of_sale,
        CAST(building_class_as_of_final AS STRING) AS building_class_as_of_final,
        CAST(tax_class_at_time_of_sale AS STRING) AS tax_class_at_time_of_sale,
        CAST(building_class_category AS STRING) AS building_class_category,
