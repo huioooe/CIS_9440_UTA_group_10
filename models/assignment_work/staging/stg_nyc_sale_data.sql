@@ -33,7 +33,7 @@ cleaned AS (
 
        -- Identifiers
        CAST(sale_date AS STRING) AS service_request_id,
-       CAST(sale_price AS INT) AS sale_price,
+       CAST(sale_price AS NUMERIC) AS sale_price,
 
        -- Date/Time
        CAST(sale_date AS TIMESTAMP) AS sale_date,
@@ -80,14 +80,16 @@ cleaned AS (
        CAST(commercial_units AS NUMERIC) AS commercial_units,       
        CAST(total_units AS NUMERIC) AS total_units, 
 
+   -- Metadata
+   CURRENT_TIMESTAMP() AS _stg_loaded_at
+
+FROM source
 
    -- Filters
    WHERE sale_date IS NOT NULL
    AND sale_price IS NOT NULL
    AND borough IS NOT NULL
 
-   -- Deduplicate
-   QUALIFY ROW_NUMBER() OVER (PARTITION BY unique_key ORDER BY created_date DESC) = 1
 )
 
 SELECT * FROM cleaned
