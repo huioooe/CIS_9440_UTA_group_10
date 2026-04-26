@@ -38,4 +38,3 @@ models:
 
        sale_data:
          +materialized: table
-

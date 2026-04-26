@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_property_info
+    description: "Property type dimension with building class information"
+    columns:
+      - name: property_type_id
+        description: "Surrogate key generated from building class fields"
+        tests:
+          - unique
+          - not_null
