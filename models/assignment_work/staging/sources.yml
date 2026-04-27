@@ -1,0 +1,158 @@
+version: 2
+sources:
+  - name: raw
+    description: Raw data loaded from NYC Open Data
+    database: hui-gao-cis-4400-spring26
+    schema: CIS_9440UTA_group_10_milestone3
+    tables:
+      - name: source_311_subset_noise
+        description: |
+          NYC 311 service requests for noised complaints
+        columns:
+          - name: unique_key
+            description: Unique ID for the service request
+            tests:
+              - unique
+              - not_null
+          - name: created_date
+            description: Date and time the request was created
+          - name: closed_date
+            description: Date and time the request was closed
+          - name: agency
+            description: Agency code
+          - name: agency_name
+            description: Full name of the agency
+          - name: complaint_type
+            description: Type of complaint
+          - name: descriptor
+            description: Further description of the complaint
+          - name: location_type
+            description: Location where the incident occurred
+          - name: incident_zip
+            description: Zip code of the incident location
+          - name: incident_address
+            description: Street address of the incident
+          - name: latitude
+            description: Latitude coordinate
+          - name: longitude
+            description: Longitude coordinate
+          - name: address_type
+            description: 'Type of address (e.g., ADDRESS, INTERSECTION, BLOCKFACE)'
+          - name: bbl
+            description: Borough Block and Lot number (NYC tax lot id)
+          - name: borough
+            description: NYC borough where incident occurred
+          - name: city
+            description: City name where incident occurred
+          - name: community_board
+            description: NYC Community Board district number
+          - name: council district
+            description: NYC council district number
+          - name: cross_street_1
+            description: First cross street near incident location
+          - name: cross_street_2
+            description: Second cross street near incident location
+          - name: descriptor_2
+            description: Further description of the complaint 2
+          - name: facility_type
+            description: Type of facility where incident occurred
+          - name: intersection_street_1
+            description: First street forming intersection where incident occurred
+          - name: intersection_street_2
+            description: Second street forming intersection where incident occurred
+          - name: landmark
+            description: Nearby landmark or point of interest
+          - name: open_data_channel_type
+            description: How request was submitted (ONLINE, PHONE, MOBILE, etc.)
+          - name: park_borough
+            description: Borough of park where incident occurred
+          - name: park_facility_name
+            description: Name of park facility where incident occurred
+          - name: police_precinct
+            description: Name of police precinct where incident occurred
+          - name: resolution_action_updated_date
+            description: Date when resolution action was last updated
+          - name: resolution_description
+            description: Description of how the request was resolved
+          - name: status
+            description: Current status of request (Open, Closed, In Progress, etc.)
+          - name: street_name
+            description: Name of street where incident occurred
+          - name: x_coordinate_state_plane
+            description: X coordinate in NY State Plane projection system (NAD 83)
+          - name: y_coordinate_state_plane
+            description: Y coordinate in NY State Plane projection system (NAD 83)
+          - name: vehicle_type
+            description: type of vehicle
+
+
+      - name: source_sale_data
+        description: |
+          NYC Open Property sales data
+        columns:
+          - name: sale_price
+            description: price of the sale transaction
+            tests:
+              - not_null
+          - name: sale_date
+            description: date of the sale transaction
+            tests:
+              - not_null
+          - name: borough
+            description: The name of the borough in which the property is located
+          - name: neighborhood
+            description: DOF assessors determine the neighborhood name in the course of valuing properties
+          - name: building_class_category
+            description: Identifies properties broad usage (e.g. One Family Home)
+          - name: tax_class_as_of_final_roll
+            description: Every property in the city is assigned to one of four tax classes (1, 2, 3, and 4)
+          - name: block
+            description: A Tax Block is a sub-division of the borough on which real properties are located
+          - name: lot
+            description: A tax Lot is a subdivision of a tax Block and represents the property unique location
+          - name: ease_ment
+            description: A right which allows an entity to make limited use of another's real property
+          - name: building_class_as_of_final
+            description: The building classification is used to describe a property's constructive use
+          - name: address
+            description: The street address of the property as listed on the Sales File
+          - name: apartment_number
+            description: The apartment number of the property
+          - name: zip_code
+            description: The property's postal code
+          - name: residential_units
+            description: The number of residential units at the listed property
+          - name: commercial_units
+            description: The number of commercial units at the listed property
+          - name: total_units
+            description: The total number of units at the listed property
+          - name: land_square_feet
+            description: The land area of the property listed in square feet
+          - name: gross_square_feet
+            description: The total building area of the property listed in square feet
+          - name: year_built
+            description: Year the building was constructed
+          - name: tax_class_at_time_of_sale
+            description: Tax class at the time of transaction
+          - name: building_class_at_time_of_sale
+            description: Building class at the time of transaction
+          - name: bbl
+            description: NY borough block lot number
+          - name: bin
+            description: bin number
+          - name: building_class_at_time_of
+            description: building class at time of
+          - name: census_tract_2020
+            description: census tract 2020
+          - name: community_board
+            description: NYC Community Board district number
+          - name: council district
+            description: NYC council district number
+          - name: latitude
+            description: latitude
+          - name: longitude
+            description: longitude
+          - name: nta
+            description: nta
+          
+          
