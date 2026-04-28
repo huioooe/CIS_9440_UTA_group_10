@@ -3,6 +3,26 @@ with sale_dates as (
         cast(sale_date as date) as full_date
     from {{ ref('stg_nyc_sale_data') }}
     where sale_date is not null
+),
+
+noise_dates as (
+    select distinct
+        cast(created_date as date) as full_date
+    from {{ ref('stg_nyc_311_noise') }}
+    where created_date is not null
+    
+    union distinct
+    
+    select distinct
+        cast(closed_date as date) as full_date
+    from {{ ref('stg_nyc_311_noise') }}
+    where closed_date is not null
+),
+
+combined as (
+    select * from sale_dates
+    union distinct
+    select * from noise_dates
 )
 
 select
@@ -21,4 +41,4 @@ select
         when extract(month from full_date) in (6, 7, 8) then 'Summer'
         else 'Fall'
     end as season
-from sale_dates
+from combined

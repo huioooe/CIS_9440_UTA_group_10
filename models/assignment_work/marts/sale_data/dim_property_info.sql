@@ -8,6 +8,6 @@ with source as (
 
 select
     {{ dbt_utils.generate_surrogate_key(['building_class_as_of_final', 'building_class_category']) }} as property_type_id,
-    building_class_as_of_final,
+    building_class_as_of_final as building_class,
     building_class_category
 from source

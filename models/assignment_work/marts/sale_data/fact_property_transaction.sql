@@ -40,7 +40,7 @@ left join dim_loc l
 left join dim_dt d
     on cast(s.sale_date as date) = d.full_date
 left join dim_prop p
-    on s.building_class_as_of_final = p.building_class_as_of_final
+    on s.building_class_as_of_final = p.building_class
     and s.building_class_category = p.building_class_category
 where s.sale_price is not null
     and s.sale_date is not null

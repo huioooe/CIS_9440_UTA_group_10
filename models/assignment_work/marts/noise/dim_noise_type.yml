@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_noise_type
+    description: "Noise type dimension from 311 noise complaints"
+    columns:
+      - name: noise_type_key
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+      - name: problem_type
+        tests:
+          - not_null

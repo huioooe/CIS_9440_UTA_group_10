@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: fact_noise_complaint
+    description: "Fact table for NYC 311 noise complaints"
+    columns:
+      - name: complaint_key
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+      - name: service_request_id
+        tests:
+          - not_null
