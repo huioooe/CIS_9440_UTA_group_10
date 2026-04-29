@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "Date dimension derived from property sale dates"
+    columns:
+      - name: date_key
+        description: "Surrogate key generated from full_date"
+        tests:
+          - unique
+          - not_null
+      - name: full_date
+        tests:
+          - not_null
