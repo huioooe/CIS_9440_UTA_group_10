@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_location
+    description: "Location dimension with borough and zip code from property sales data"
+    columns:
+      - name: location_id
+        description: "Surrogate key generated from borough and zip_code"
+        tests:
+          - unique
+          - not_null
+      - name: borough
+        tests:
+          - not_null
+      - name: zip_code
+        tests:
+          - not_null

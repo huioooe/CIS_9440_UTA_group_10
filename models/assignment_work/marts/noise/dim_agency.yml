@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_agency
+    description: "Agency dimension from 311 noise complaints"
+    columns:
+      - name: agency_key
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+      - name: agency_name
+        tests:
+          - not_null
+      - name: agency_type
+        tests:
+          - not_null
